@@ -2,7 +2,7 @@
 import Icon from "./Icon.astro";
 export interface Props {
   brand: BaseNavItem;
-  items: NavItem[];
+  items?: NavItem[];
 }
 
 export interface BaseNavItem {
@@ -27,47 +27,49 @@ const { brand, items } = Astro.props;
 <nav class="navbar navbar-expand-lg bg-light" data-bs-theme="light">
   <div class="container-fluid">
     <a class="navbar-brand" href={brand.href}>{brand.title}</a>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav me-auto">
-        {
-          items.map((item) =>
-            "items" in item ? (
-              <li class="nav-item">
-                <button
-                  class="nav-link dropdown-toggle"
-                  data-bs-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  {item.items}
-                </button>
-                <div class="dropdown-menu">
-                  {item.items.map((subitem) =>
-                    subitem === "-" ? (
-                      <div class="dropdown-divider" />
-                    ) : (
-                      <a class="dropdown-item" href={subitem.href}>
-                        {subitem.title}
-                      </a>
-                    ),
-                  )}
-                </div>
-              </li>
-            ) : (
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  class:list={{ "nav-link": true, active: item.active }}
-                  href={item.href}
-                >
-                  {item.title}
-                </a>
-              </li>
-            ),
-          )
-        }
-      </ul>
-    </div>
+    {
+      items && (
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav me-auto">
+            {items.map((item) =>
+              "items" in item ? (
+                <li class="nav-item">
+                  <button
+                    class="nav-link dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    {item.items}
+                  </button>
+                  <div class="dropdown-menu">
+                    {item.items.map((subitem) =>
+                      subitem === "-" ? (
+                        <div class="dropdown-divider" />
+                      ) : (
+                        <a class="dropdown-item" href={subitem.href}>
+                          {subitem.title}
+                        </a>
+                      ),
+                    )}
+                  </div>
+                </li>
+              ) : (
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    class:list={{ "nav-link": true, active: item.active }}
+                    href={item.href}
+                  >
+                    {item.title}
+                  </a>
+                </li>
+              ),
+            )}
+          </ul>
+        </div>
+      )
+    }
     <ul class="navbar-nav">
       <li class="nav-item">
         <Icon href="https://github.com/cm-ayf" icon="github" />

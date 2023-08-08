@@ -1,18 +1,12 @@
 ---
 import "bootswatch/dist/cosmo/bootstrap.min.css";
-import NavBar, { NavItem } from "@components/NavBar.astro";
+import NavBar from "@components/NavBar.astro";
 
 interface Props {
   title: string;
 }
 
 const { title } = Astro.props;
-const items: NavItem[] = [
-  {
-    title: "About",
-    href: "/about/",
-  },
-];
 ---
 
 <html lang="en">
@@ -25,9 +19,9 @@ const items: NavItem[] = [
   </head>
   <body>
     <header>
-      <NavBar brand={{ title, href: "/" }} items={items} />
+      <NavBar brand={{ title, href: "/" }} />
     </header>
-    <main>
+    <main class="container-sm">
       <h1>{title}</h1>
       <slot />
     </main>
