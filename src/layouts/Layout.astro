@@ -11,7 +11,7 @@ interface Props {
 }
 
 const { title, description, image: relativeImage = "/icon.jpg" } = Astro.props;
-const image = new URL(relativeImage, Astro.url).href;
+const image = new URL(relativeImage, Astro.site).href;
 ---
 
 <html lang="en">
