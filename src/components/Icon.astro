@@ -1,0 +1,24 @@
+---
+import "bootstrap-icons/font/bootstrap-icons.css";
+
+interface Props {
+  icon: string;
+  href: string;
+}
+
+const { icon, href } = Astro.props;
+---
+
+<a href={href}>
+  <i class:list={[`bi-${icon}`]}></i>
+</a>
+
+<style>
+  i {
+    font-size: 1.5rem;
+  }
+
+  i:not(:hover) {
+    color: black;
+  }
+</style>

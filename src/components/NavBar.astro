@@ -1,4 +1,5 @@
 ---
+import Icon from "./Icon.astro";
 export interface Props {
   brand: BaseNavItem;
   items: NavItem[];
@@ -26,7 +27,7 @@ const { brand, items } = Astro.props;
 <nav class="navbar navbar-expand-lg bg-light" data-bs-theme="light">
   <div class="container-fluid">
     <a class="navbar-brand" href={brand.href}>{brand.title}</a>
-    <div class="collapse navbar-collapse" id="navbarColor03">
+    <div class="collapse navbar-collapse">
       <ul class="navbar-nav me-auto">
         {
           items.map((item) =>
@@ -67,5 +68,28 @@ const { brand, items } = Astro.props;
         }
       </ul>
     </div>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <Icon href="https://github.com/cm-ayf" icon="github" />
+      </li>
+      <li class="nav-item">
+        <Icon
+          href="https://www.linkedin.com/in/風多-岩田-14410a277/"
+          icon="linkedin"
+        />
+      </li>
+      <li class="nav-item">
+        <Icon href="https://twitter.com/cm_ayf" icon="twitter" />
+      </li>
+      <li class="nav-item">
+        <Icon href="https://instagram.com/cm_ayf" icon="instagram" />
+      </li>
+    </ul>
   </div>
 </nav>
+
+<style>
+  li.nav-item {
+    margin: 0 0.5rem;
+  }
+</style>
