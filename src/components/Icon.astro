@@ -1,24 +1,27 @@
 ---
 import "bootstrap-icons/font/bootstrap-icons.css";
+import { href, type Service } from "./service";
 
 interface Props {
-  icon: string;
-  href: string;
+  service: Service;
+  class?: string;
 }
 
-const { icon, href } = Astro.props;
+const { service, ...rest } = Astro.props;
 ---
 
-<a href={href}>
-  <i class:list={[`bi-${icon}`]}></i>
+<a href={href(service)} {...rest}>
+  <i class:list={[`bi-${service}`]}></i>
+  <slot />
 </a>
 
 <style>
   i {
     font-size: 1.5rem;
+    color: black;
   }
 
-  i:not(:hover) {
-    color: black;
+  a:hover i {
+    color: var(--primary);
   }
 </style>

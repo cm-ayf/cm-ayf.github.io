@@ -3,6 +3,7 @@ import "bootswatch/dist/cosmo/bootstrap.min.css";
 import NavBar from "@components/NavBar.astro";
 import { SEO } from "astro-seo";
 import data from "../data.json";
+import { user } from "@components/github";
 
 interface Props {
   title: string;
@@ -10,8 +11,10 @@ interface Props {
   image?: string;
 }
 
-const { title, description, image: relativeImage = "/icon.jpg" } = Astro.props;
-const image = new URL(relativeImage, Astro.site).href;
+const { title, description, image: relativeImage } = Astro.props;
+const image = relativeImage
+  ? new URL(relativeImage, Astro.site).href
+  : user.avatar_url;
 ---
 
 <html lang="en">
