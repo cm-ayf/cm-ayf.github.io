@@ -1,9 +1,26 @@
-import data from "../data.json";
+import { Octokit } from "@octokit/core";
 
-const response = await fetch(`https://api.github.com/users/${data.githubId}`, {
-  headers: {
-    Accept: "application/vnd.github+json",
-    "X-GitHub-Api-Version": "2022-11-28",
-  },
-});
-export const user = await response.json();
+const octokit = new Octokit();
+const username = "cm-ayf";
+
+const [userResponse, socialAccountsResponse] = await Promise.all([
+  octokit.request("GET /users/{username}", { username }),
+  octokit.request("GET /users/{username}/social_accounts", { username }),
+]);
+
+export interface SocialAccounts {
+  [key: string]: string;
+}
+
+export type Service = keyof SocialAccounts;
+
+export const user = userResponse.data;
+export const socialAccounts: SocialAccounts = {
+  github: user.html_url,
+  ...Object.fromEntries(
+    socialAccountsResponse.data.map((account) => [
+      account.provider,
+      account.url,
+    ]),
+  ),
+};

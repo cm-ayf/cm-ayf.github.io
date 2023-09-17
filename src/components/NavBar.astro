@@ -1,6 +1,6 @@
 ---
 import Icon from "./Icon.astro";
-import { href } from "./service";
+import { socialAccounts } from "./github";
 
 export interface Props {
   brand: BaseNavItem;
@@ -74,15 +74,11 @@ const { brand, items } = Astro.props;
     }
     <ul class="navbar-nav">
       {
-        (["github", "linkedin", "twitter", "instagram"] as const).map(
-          (service) => (
-            <li class="nav-item">
-              <a href={href(service)}>
-                <Icon {service} />
-              </a>
-            </li>
-          ),
-        )
+        Object.entries(socialAccounts).map(([service, url]) => (
+          <li class="nav-item">
+            <Icon {service} {url} />
+          </li>
+        ))
       }
     </ul>
   </div>

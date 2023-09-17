@@ -1,16 +1,17 @@
 ---
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { href, type Service } from "./service";
+import type { Service } from "./github";
 
 interface Props {
   service: Service;
+  url: string;
   class?: string;
 }
 
-const { service, ...rest } = Astro.props;
+const { service, url, ...rest } = Astro.props;
 ---
 
-<a href={href(service)} {...rest} target="_blank">
+<a href={url} {...rest} target="_blank">
   <i class:list={[`bi-${service}`]}></i>
   <slot />
 </a>

@@ -2,7 +2,6 @@
 import "bootswatch/dist/cosmo/bootstrap.min.css";
 import NavBar from "@components/NavBar.astro";
 import { SEO } from "astro-seo";
-import data from "../data.json";
 import { user } from "@components/github";
 
 interface Props {
@@ -41,8 +40,8 @@ const image = relativeImage
       }}
       twitter={{
         card: "summary",
-        site: `@${data.twitterId}`,
-        creator: `@${data.twitterId}`,
+        site: `@${user.twitter_username}`,
+        creator: `@${user.twitter_username}`,
         title,
         description,
         image,

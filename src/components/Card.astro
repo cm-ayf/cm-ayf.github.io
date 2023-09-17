@@ -1,7 +1,6 @@
 ---
-import data from "../data.json";
 import Icon from "./Icon.astro";
-import { user } from "./github";
+import { socialAccounts, user } from "./github";
 ---
 
 <div class="card" style="width: 36rem; height: 20rem;">
@@ -24,12 +23,20 @@ import { user } from "./github";
     <a href="https://cm-ayf.github.io/" class="card-link">
       https://cm-ayf.github.io/
     </a>
-    <Icon service="github" class="card-link">
-      GitHub @{data.githubId}
-    </Icon>
-    <Icon service="twitter" class="card-link">
-      Twitter @{data.twitterId}
-    </Icon>
+    {
+      socialAccounts.github && (
+        <Icon service="github" url={socialAccounts.github} class="card-link">
+          GitHub @{user.login}
+        </Icon>
+      )
+    }
+    {
+      socialAccounts.twitter && (
+        <Icon service="twitter" url={socialAccounts.twitter} class="card-link">
+          Twitter @{user.twitter_username}
+        </Icon>
+      )
+    }
   </div>
 </div>
 
