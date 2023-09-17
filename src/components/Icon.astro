@@ -10,7 +10,7 @@ interface Props {
 const { service, ...rest } = Astro.props;
 ---
 
-<a href={href(service)} {...rest}>
+<a href={href(service)} {...rest} target="_blank">
   <i class:list={[`bi-${service}`]}></i>
   <slot />
 </a>
