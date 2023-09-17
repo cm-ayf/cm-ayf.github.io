@@ -8,3 +8,15 @@ import Layout from "@layouts/Layout.astro";
     <Card />
   </div>
 </Layout>
+
+<style>
+  @media (width >= 36rem) {
+    .overflow-x-scroll {
+      scrollbar-width: none;
+    }
+
+    .overflow-x-scroll::-webkit-scrollbar {
+      display: none;
+    }
+  }
+</style>
