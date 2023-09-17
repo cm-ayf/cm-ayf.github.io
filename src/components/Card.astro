@@ -4,23 +4,23 @@ import Icon from "./Icon.astro";
 import { user } from "./github";
 ---
 
-<div class="card" style="width: 36rem; height: 18rem;">
+<div class="card" style="width: 36rem; height: 20rem;">
   <div class="card-body">
     <div class="row">
-      <div class="col-md-8 d-flex flex-column justify-content-center">
+      <div class="col-8 d-flex flex-column justify-content-center">
         <h2 class="card-title fs-1">🌱🌿☘️🍀</h2>
         <h3 class="card-subtitle mb-2 text-muted">cm-ayf</h3>
       </div>
-      <div class="col-md-4 text-end">
+      <div class="col-4 text-end">
         <img
           src={user.avatar_url}
           alt="icon"
           class="rounded-circle"
-          style="width: 100%"
+          style="max-width: 100%"
         />
       </div>
     </div>
-    <p>{user.bio}</p>
+    <p class="pt-3">{user.bio}</p>
     <a href="https://cm-ayf.github.io/" class="card-link">
       https://cm-ayf.github.io/
     </a>
