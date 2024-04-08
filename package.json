@@ -10,11 +10,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@octokit/core": "^5.0.0",
-    "astro": "^2.10.3",
-    "astro-seo": "^0.7.5",
-    "bootstrap-icons": "^1.10.5",
-    "bootswatch": "^5.3.1"
+    "@octokit/core": "^6.1.1",
+    "astro": "^4.5.16",
+    "astro-seo": "^0.8.3",
+    "bootstrap-icons": "^1.11.3",
+    "bootswatch": "^5.3.3"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.3.0",
