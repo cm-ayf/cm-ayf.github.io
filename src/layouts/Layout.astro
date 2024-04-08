@@ -57,7 +57,10 @@ const image = relativeImage
   </head>
   <body>
     <header>
-      <NavBar brand={{ title, href: "/" }} />
+      <NavBar
+        brand={{ title, href: "/" }}
+        items={[{ title: "About my research area", href: "/research" }]}
+      />
     </header>
     <main class:list={["container-sm", ...style]}>
       <h1>{title}</h1>
