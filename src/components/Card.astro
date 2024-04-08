@@ -6,7 +6,11 @@ import { socialAccounts, user } from "./github";
 <div class="card" style="width: 36rem; height: 20rem;">
   <div class="card-body">
     <div class="row">
-      <div class="col-8 d-flex flex-column justify-content-center">
+      <div
+        id="name-container"
+        class="col-8 d-flex flex-column justify-content-center"
+        data-name="cm-ayf"
+      >
         <h2 class="card-title fs-1">🌱🌿☘️🍀</h2>
         <h3 class="card-subtitle mb-2 text-muted">cm-ayf</h3>
       </div>
@@ -40,9 +44,34 @@ import { socialAccounts, user } from "./github";
   </div>
 </div>
 
+<script>
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  const nameContainer = document.getElementById("name-container")!;
+  nameContainer.addEventListener("click", () => {
+    const dataName = nameContainer.getAttribute("data-name");
+    if (dataName === "cm-ayf") {
+      nameContainer.setAttribute("data-name", "futaiwata");
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      nameContainer.querySelector("h2")!.textContent = "岩田風多";
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      nameContainer.querySelector("h3")!.textContent = "いわたふうた";
+    } else {
+      nameContainer.setAttribute("data-name", "cm-ayf");
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      nameContainer.querySelector("h2")!.textContent = "🌱🌿☘️🍀";
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      nameContainer.querySelector("h3")!.textContent = "cm-ayf";
+    }
+  });
+</script>
+
 <style>
   a.card-link:not(:hover) {
     color: var(--bs-body-color);
     text-decoration: none;
+  }
+
+  #name-container {
+    cursor: pointer;
   }
 </style>
