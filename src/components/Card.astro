@@ -45,22 +45,20 @@ import { socialAccounts, user } from "./github";
 </div>
 
 <script>
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  /* eslint-disable @typescript-eslint/no-non-null-assertion */
   const nameContainer = document.getElementById("name-container")!;
+  const nameH2 = nameContainer.querySelector("h2")!;
+  const nameH3 = nameContainer.querySelector("h3")!;
   nameContainer.addEventListener("click", () => {
     const dataName = nameContainer.getAttribute("data-name");
     if (dataName === "cm-ayf") {
       nameContainer.setAttribute("data-name", "futaiwata");
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      nameContainer.querySelector("h2")!.textContent = "岩田風多";
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      nameContainer.querySelector("h3")!.textContent = "いわたふうた";
+      nameH2.textContent = "岩田風多";
+      nameH3.textContent = "いわたふうた";
     } else {
       nameContainer.setAttribute("data-name", "cm-ayf");
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      nameContainer.querySelector("h2")!.textContent = "🌱🌿☘️🍀";
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      nameContainer.querySelector("h3")!.textContent = "cm-ayf";
+      nameH2.textContent = "🌱🌿☘️🍀";
+      nameH3.textContent = "cm-ayf";
     }
   });
 </script>
