@@ -58,7 +58,7 @@ const image = relativeImage
   <body>
     <header>
       <NavBar
-        brand={{ title, href: "/" }}
+        brand={{ title: Astro.site.hostname, href: "/" }}
         items={[{ title: "About my research area", href: "/research" }]}
       />
     </header>
